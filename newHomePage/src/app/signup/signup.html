@@ -1,0 +1,47 @@
+<div class="container" style="max-width: 500px; margin: auto; padding: 20px;">
+  <h2>Sign Up Form</h2>
+  <form #signupForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <!-- Name -->
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" name="name" [(ngModel)]="signupData.name" required />
+    </div>
+
+    <!-- Email ID -->
+    <div>
+      <label for="email">Email ID:</label>
+      <input id="email" name="email" type="email" [(ngModel)]="signupData.email" required />
+    </div>
+
+    <!-- Department -->
+    <div>
+      <label for="department">Department:</label>
+      <input id="department" name="department" [(ngModel)]="signupData.department" />
+    </div>
+
+    <!-- Date of Joining -->
+    <div>
+      <label for="doj">Date of Joining:</label>
+      <input id="doj" name="doj" type="date" [(ngModel)]="signupData.doj" />
+    </div>
+
+    <!-- Address -->
+    <div>
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" rows="3" [(ngModel)]="signupData.address"></textarea>
+    </div>
+
+    <!-- Pincode -->
+    <div>
+      <label for="pincode">Pincode:</label>
+      <input id="pincode" name="pincode" type="text" [(ngModel)]="signupData.pincode" />
+    </div>
+
+    <!-- Submit Button -->
+    <div style="margin-top: 10px;">
+      <button type="submit">Submit</button>
+    </div>
+    
+  </form>
+</div>

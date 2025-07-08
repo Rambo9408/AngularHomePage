@@ -1,3 +1,15 @@
 import { Routes } from '@angular/router';
+import { Header } from './header/header';
+import { Home } from './home/home';
+import { Signup } from './signup/signup';
+import { Login } from './login/login';
+import { Pagenotfound } from './pagenotfound/pagenotfound';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {path:'header', component: Header},
+    {path:'', component: Home},
+    {path:'signup', component: Signup},
+    {path:'login', component: Login},
+    {path:'**',component: Pagenotfound}
+    //we must put pagenotfound rout in the last as when we put it the first and if no link is matched then it will show page not found on every case. hence this is called wildcard Route
+];
