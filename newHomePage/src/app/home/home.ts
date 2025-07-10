@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { User } from '../user/user';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [RouterLink, User, CommonModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class Home {
+  usersName: string = 'Bruce Wayne';
+  selectedFlower: string = 'Rose';
   users = [
     { id: 1, name: 'Ram Mishra', age: 28, address: 'Delhi, India', email: 'ram.mishra@example.com' },
     { id: 2, name: 'Sita Verma', age: 26, address: 'Mumbai, India', email: 'sita.verma@example.com' },
@@ -42,5 +46,9 @@ export class Home {
     this.router.navigate(['/profile'], {
       queryParams: { name }
     });
+  }
+
+  onUserChange(name:string){
+    this.usersName = name;
   }
 }

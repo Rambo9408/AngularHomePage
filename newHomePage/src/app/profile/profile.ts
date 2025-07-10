@@ -15,9 +15,8 @@ export class Profile {
   name: string | null = '';       // Holds the query parameter (?name=value)
   routName: string | null = '';   // Holds static route data provided in the route configuration
   routeAge!:number;
-  age!: number;              // Also from route data
-  id!: number;
-  // id: number = 0; the above id initialization can be defined like this too
+  age!: number;                   // Also from route data
+  id!: number;                    // id: number = 0; the above id initialization can be defined like this too
   address: string = '';
   email: string = '';
 
@@ -35,7 +34,7 @@ export class Profile {
 
     // ✅ 2. Subscribing to static data passed through route configuration
     this.route.data.subscribe(data => {
-      this.routeAge = data['routeAge'];           // Example: data provided using route configuration like { data: { age: 25 } }
+      this.routeAge = data['routeAge']; // Example: data provided using route configuration like { data: { age: 25 } }
       this.routName = data['routName']; // Similar static data passed via route
     });
   }

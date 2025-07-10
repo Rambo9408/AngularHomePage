@@ -11,7 +11,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class Login {
   loginData = {
     email: '',
-    password: ''
+    password: '',
+    designation: ''
   };
   onLogin(data: NgForm) {
     console.log("Input Field Data: ", data.value);

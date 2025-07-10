@@ -1,2 +1,10 @@
 <app-header></app-header>
+<h1>Reuse Component</h1>
+<div class="divContainer" style="overflow-y: scroll; max-height: 400px;">
+    @for (emp of Employees; track emp.id) {
+        <div class="divContainer">
+            <app-about [employee]="emp"></app-about>
+        </div>
+    }
+</div>
 <router-outlet></router-outlet>

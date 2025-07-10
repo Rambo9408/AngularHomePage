@@ -48,6 +48,36 @@ button[type="submit"] {
   transition: background-color 0.25s ease;
 }
 
-button[type="submit"]:hover {
-  background-color: #0056b3;
+button[type="submit"]:disabled {
+  background-color: #cccccc;   /* Greyed out background */
+  cursor: not-allowed;         /* Shows "not allowed" cursor */
+  color: #666;                 /* Slightly dimmed text */
+  opacity: 0.7;                /* Optional: makes it look inactive */
+  transition: none;            /* No hover effect when disabled */
+}
+
+/* ▼ Drop‑down (select) styling */
+select.dropdown {
+  width: 100%;
+  padding: 10px 12px;            /* same padding as inputs */
+  font-size: 14px;               /* same font size as inputs */
+  color: #333;
+  background-color: #fff;        /* white background */
+  border: 1px solid #ccc;        /* same border as inputs */
+  border-radius: 5px;            /* rounded corners like inputs */
+  transition: border-color 0.3s ease;
+  appearance: none;              /* hides native arrow (some browsers) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23333' d='M1 0l4 4 4-4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center; /* custom arrow position */
+  background-size: 10px 6px;
+}
+
+select.dropdown:focus {
+  border-color: #007bff;         /* blue border on focus (same as inputs) */
+  outline: none;                 /* remove default focus outline */
+}
+
+select.dropdown option {
+  font-size: 14px;
 }

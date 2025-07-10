@@ -1,0 +1,14 @@
+<div>
+    <div *ngIf="user" style="display: grid;margin: 10px;">
+        <h4>Data is being passed from parent component to child component: </h4>
+        <span>1. Static Data: {{user}}</span>
+        <br>
+        <span>1. Dynamic Data: {{user}}</span>
+        <br>
+        <span>1. Dynamic Data(From Option): {{user}}</span>
+    </div>
+    <div *ngIf="flower" style="display: grid;margin: 10px;">
+        <h4>Data is being passed from parent component to child component: </h4>
+        <span>1. Dynamic flower Data(From Option): {{flower}}</span>
+    </div>
+</div>

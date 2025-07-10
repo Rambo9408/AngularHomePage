@@ -6,11 +6,13 @@ import { Login } from './login/login';
 import { Pagenotfound } from './pagenotfound/pagenotfound';
 import { Profile } from './profile/profile';
 import { Ractiveform } from './ractiveform/ractiveform';
+import { About } from './about/about';
 
 export const routes: Routes = [
     { path: '', component: Home, pathMatch: 'full' },
     {path:'header', component: Header},
     {path:'home', component: Home},
+    {path:'about', component: About},
     {path:'signup', component: Signup},
     {path:'login', component: Login},
     {path:'form', component: Ractiveform},

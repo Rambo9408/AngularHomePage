@@ -19,7 +19,7 @@
       Go To Profile Page (Via Component)
     </button>
   </div>
-   <div class="profilepagelink">
+  <div class="profilepagelink">
     <!-- 🔘 Method 3: Using a button click to navigate programmatically by Passing value as argument parameter -->
     <button (click)="sendNameToProfilePage('Sanjiv Malhotra')">
       Go To Profile Page (Via Arguments)
@@ -32,12 +32,58 @@
     </a>
   </div>
 </div>
+<div class="divContainer" style="overflow-y: scroll;max-height: 270px;">
+  @for (user of users; track $index) {
+  <ul>
+    <li>
+      <a [routerLink]="['/profile']"
+        [queryParams]="{ id: user.id, name: user.name, age: user.age, address: user.address, email: user.email }">{{user.name}}</a>
+    </li>
+  </ul>
+  }
+</div>
 <div class="divContainer">
-    @for (user of users; track $index) {
-        <ul>
-            <li>
-                <a [routerLink]="['/profile']" [queryParams]="{ id: user.id, name: user.name, age: user.age, address: user.address, email: user.email }">{{user.name}}</a>
-            </li>
-        </ul>
-    }
+  <h2>PassingData Tochild Component:</h2>
+  <app-user user="Ram Mishra"></app-user>
+  <!-- this is used for sending the static data. -->
+  <!-- Below is used tos end dynamic data. -->
+   <hr>
+  <app-user [user]="usersName"></app-user>
+  <!--if we put [user] then userName is taken as property. -->
+
+  <!-- the below is used to change the value from the dropdown by using the function onUserChange -->
+   <hr>
+  <div *ngIf="usersName">
+    <select #userDropDown (change)="onUserChange(userDropDown.value)">
+      <option value="Ashish">Ashish</option>
+      <option value="Sanjiv">Sanjiv</option>
+      <option value="Abhishek">Abhishek</option>
+      <option value="Bhushan">Bhushan</option>
+      <option value="Deepak">Deepak</option>
+      <option value="Gaurav">Gaurav</option>
+    </select>
+    <app-user [user]="usersName"></app-user>
+  </div>
+  <hr>
+  <!-- the below is used to change the value from the dropdown by using the dropdown variable name and getting its value by variable.value -->
+
+  <!-- #flowerDropDown.value does not automatically trigger change detection when bound directly inside the template. Assigning it to a component property (selectedFlower) on (change) is the Angular way to make it reactive. -->
+  <div *ngIf="selectedFlower">
+
+    <select #flowerDropDown (change)="selectedFlower = flowerDropDown.value">
+      <option value="Rose">Rose</option>
+      <option value="Tulip">Tulip</option>
+      <option value="Daisy">Daisy</option>
+      <option value="Sunflower">Sunflower</option>
+      <option value="Lily">Lily</option>
+      <option value="Orchid">Orchid</option>
+      <option value="Violet">Violet</option>
+      <option value="Daffodil">Daffodil</option>
+      <option value="Marigold">Marigold</option>
+    </select>
+
+    <!-- Bind after the select so #dropDown exists -->
+    <app-user [flower]="selectedFlower"></app-user>
+
+  </div>
 </div>

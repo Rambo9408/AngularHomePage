@@ -1,0 +1,8 @@
+.divContainer {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  max-width: 400px;
+}
