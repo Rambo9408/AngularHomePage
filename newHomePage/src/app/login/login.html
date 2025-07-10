@@ -1,7 +1,7 @@
 <div class="login-container" style="max-width: 400px; margin: auto; padding: 20px;">
   <h2>Login</h2>
-  <form #loginForm="ngForm" (ngSubmit)="onLogin()">
-    
+  <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+
     <!-- Email -->
     <div>
       <label for="email">Email:</label>
@@ -18,6 +18,6 @@
     <div style="margin-top: 10px;">
       <button type="submit">Login</button>
     </div>
-    
+
   </form>
 </div>

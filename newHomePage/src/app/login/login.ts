@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
@@ -13,7 +13,9 @@ export class Login {
     email: '',
     password: ''
   };
-  onLogin(){
+  onLogin(data: NgForm) {
+    console.log("Input Field Data: ", data.value);
+
     console.log('Login Form Data:', this.loginData);
   }
 }

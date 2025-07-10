@@ -1,0 +1,96 @@
+<!-- 🔹 FIRST FORM: Using individual FormControl bindings -->
+
+<div class="login-container" style="max-width: 400px; margin: 20px 0 0 147px; padding: 20px;">
+  <h2>Reactive Form</h2>
+
+  <!-- ✅ This form does not use [formGroup] -->
+  <!-- It binds each field individually using [formControl] directive -->
+  <form>
+    <div>
+      <label for="name">Name:</label>
+      <!-- 🧠 This input is connected to a FormControl instance named 'name' in the component using [formControl] -->
+      <input id="name" name="name" type="text" [formControl]="name" />
+    </div>
+
+    <!-- 💡 NOTE: When using reactive forms, we must bind form inputs to FormControl or FormGroup -->
+
+    <div>
+      <label for="password">Password:</label>
+      <!-- 🔐 Bound to 'password' FormControl from the component -->
+      <input id="password" name="password" type="text" [formControl]="password" />
+    </div>
+
+    <!-- Submit button -->
+    <div style="margin-top: 10px;">
+      <button type="submit">Login</button>
+    </div>
+
+    <!-- 💬 Real-time display of entered values -->
+    <div>
+      {{ name.value }} has password {{ password.value }}.
+    </div>
+  </form>
+</div>
+
+<!-- 🔸 SECOND FORM: Using FormGroup for full form management -->
+
+<div class="login-container" style="max-width: 400px; margin: 20px 0 0 147px; padding: 20px;">
+  <h2>Reactive Group Binding Data Display:</h2>
+
+  <!-- 📦 This form uses [formGroup] directive to bind the entire form to the 'studentData' FormGroup from the component -->
+  <form [formGroup]="studentData" (ngSubmit)="onSubmit()">
+
+    <!-- 👦 Student Name Field -->
+    <div>
+      <label for="stdName">Student Name:</label>
+      <!-- 🧠 Binds to the 'stdName' control inside FormGroup -->
+      <input id="stdName" name="stdName" placeholder="Enter The Name" type="text" formControlName="stdName" />
+
+      <!-- 🛑 Shows validation error if field is touched but invalid -->
+      <div *ngIf="(stdName?.dirty || stdName?.touched) && stdName?.invalid">
+        <small style="color: red;">Enter the VAlid Name.</small>
+      </div>
+    </div>
+
+    <!-- 🎂 Student Age Field -->
+    <div>
+      <label for="stdAge">Student Age:</label>
+      <!-- 🔢 Binds to 'stdAge' FormControl, has validation: required + min + max -->
+      <input id="stdAge" name="stdAge" placeholder="Enter The Age" type="text" formControlName="stdAge" />
+
+      <!-- ⚠️ Error shows if user has interacted with the field and age is invalid -->
+      <div *ngIf="(stdAge?.dirty || stdAge?.touched) && stdAge?.invalid">
+        <small style="color: red;">Enter Valid Age Number.</small>
+      </div>
+    </div>
+
+    <!-- 📘 Student Marks Field (Optional) -->
+    <div>
+      <label for="stdMarks">Student Marks:</label>
+      <!-- No validation rules applied -->
+      <input id="stdMarks" name="stdMarks" placeholder="Enter The Marks" type="text" formControlName="stdMarks" />
+    </div>
+
+    <!-- 📧 Student Email Field -->
+    <div>
+      <label for="stdEmail">Student Email:</label>
+      <!-- 🔗 Binds to 'stdEmail' FormControl that has pattern & length validation -->
+      <input id="stdEmail" name="stdEmail" placeholder="Enter The Email" type="text" formControlName="stdEmail" />
+
+      <!-- ⚠️ Shows if email is touched but invalid -->
+      <div *ngIf="(stdEmail?.dirty || stdEmail?.touched) && stdEmail?.invalid">
+        <small style="color: red;">Enter Valid Email Address.</small>
+      </div>
+    </div>
+
+    <!-- 🟢 Submit button triggers 'onSubmit()' method -->
+    <div style="margin-top: 10px;">
+      <button type="submit">Display Data</button>
+    </div>
+
+    <!-- 🔁 Button sets default data into all fields using setValue() -->
+    <div style="margin-top: 10px;">
+      <button type="button" (click)="setNewValue()">Set New Data</button>
+    </div>
+  </form>
+</div>

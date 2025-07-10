@@ -3,13 +3,14 @@
         <h1>Logo</h1>
     </div>
     <div class="nav-links">
-        <span routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/" class="nav-item">Home</span>
+        <span routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="" class="nav-item">Home</span>
         <!-- in the above element. the routerLinkActive="active" is used to represent the selected or active link which is selected,
         there is a problem with as the home has '/' path which come always with the other link, so the home link is selected everytime
         to make sure only the selected link is shown, we should add [routerLinkActiveOptions]="{exact:true}" to only make sure the routerlink is active
         for the selected link.-->
         <span routerLinkActive="active" class="nav-item">About</span>
         <span routerLinkActive="active" routerLink="login" class="nav-item">Login</span>
+        <span routerLinkActive="active" routerLink="form" class="nav-item">Form</span>
         <span routerLinkActive="active" routerLink="signup" class="nav-item">Sign Up</span>
     </div>
 </div>

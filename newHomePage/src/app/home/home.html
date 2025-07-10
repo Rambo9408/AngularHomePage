@@ -1,1 +1,43 @@
-<p>home works!</p>
+<div class="divContainer">
+  <div class="profilepagelink">
+    <!-- 🔗 Method 1: Passing as matrix param (not common for modern apps) -->
+    <a [routerLink]="['/profile', { name: 'Ram Mishra' }]">
+      Go To Profile Page (Matrix Param)
+    </a>
+  </div>
+
+  <div class="profilepagelink">
+    <!-- 🔗 Method 2: Passing as query parameter (recommended) -->
+    <a [routerLink]="['/profile']" [queryParams]="{ name: 'Ram Mishra' }">
+      Go To Profile Page (Query Param)
+    </a>
+  </div>
+
+  <div class="profilepagelink">
+    <!-- 🔘 Method 3: Using a button click to navigate programmatically -->
+    <button (click)="goToProfilePage()">
+      Go To Profile Page (Via Component)
+    </button>
+  </div>
+   <div class="profilepagelink">
+    <!-- 🔘 Method 3: Using a button click to navigate programmatically by Passing value as argument parameter -->
+    <button (click)="sendNameToProfilePage('Sanjiv Malhotra')">
+      Go To Profile Page (Via Arguments)
+    </button>
+  </div>
+  <div class="profilepagelink">
+    <!-- 🔘 Method 3: Using a button click to navigate programmatically by Passing value directly through router -->
+    <a routerLink="profile">
+      Go To Profile Page (Via Router)
+    </a>
+  </div>
+</div>
+<div class="divContainer">
+    @for (user of users; track $index) {
+        <ul>
+            <li>
+                <a [routerLink]="['/profile']" [queryParams]="{ id: user.id, name: user.name, age: user.age, address: user.address, email: user.email }">{{user.name}}</a>
+            </li>
+        </ul>
+    }
+</div>
