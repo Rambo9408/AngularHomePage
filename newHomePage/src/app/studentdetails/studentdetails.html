@@ -1,0 +1,13 @@
+<h1>studentdetails works!</h1>
+<div class="user-card">
+    <app-user (getStudents)="handleStudent($event);"></app-user>
+    <!-- Emit the list of students from the <app-user> child component -->
+    @for (std of students; track std.name) {
+        <div class="student-card">
+        <p><strong>Name:</strong> {{ std.name }}</p>
+        <p><strong>Age:</strong> {{ std.age }}</p>
+        <p><strong>Address:</strong> {{ std.address }}</p>
+        <hr />
+      </div>
+    }
+</div>

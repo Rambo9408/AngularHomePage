@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { Header } from './header/header';
 import { About } from './about/about';
 
@@ -34,4 +34,6 @@ export class App {
     { id: 19, name: 'Meena Das', age: 27, address: 'Bhubaneswar, India', email: 'meena.das@example.com' },
     { id: 20, name: 'Arjun Nair', age: 26, address: 'Thiruvananthapuram, India', email: 'arjun.nair@example.com' }
   ];
+
+  constructor(public router:Router){} // make this puclic, so that it will be accessible to template.
 }

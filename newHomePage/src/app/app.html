@@ -1,6 +1,6 @@
 <app-header></app-header>
-<h1>Reuse Component</h1>
-<div class="divContainer" style="overflow-y: scroll; max-height: 400px;">
+<div *ngIf="router.url === '/about'" class="divContainer" style="overflow-y: scroll; max-height: 400px;">
+    <h1>Reuse Component</h1>
     @for (emp of Employees; track emp.id) {
         <div class="divContainer">
             <app-about [employee]="emp"></app-about>

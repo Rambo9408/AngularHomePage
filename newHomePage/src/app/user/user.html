@@ -11,4 +11,12 @@
         <h4>Data is being passed from parent component to child component: </h4>
         <span>1. Dynamic flower Data(From Option): {{flower}}</span>
     </div>
+    <div *ngIf="!user && !flower" >
+        <button (click)="getStudents.emit(students)">pass Data button 1</button>
+        <!-- sending data from child component to the parent component, first way in which we are directly assigning data on the click of the button
+         instead of calling any funciton. -->
+        <button (click)="loadData()">pass Data button 2</button>
+        <!-- sending data from child component to the parent component, second way in which we are calling a function then assigning it to the emmiter
+         function to send data to the parent component.-->
+    </div>
 </div>
