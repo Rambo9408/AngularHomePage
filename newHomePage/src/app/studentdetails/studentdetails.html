@@ -1,13 +1,20 @@
-<h1>studentdetails works!</h1>
-<div class="user-card">
-    <app-user (getStudents)="handleStudent($event);"></app-user>
-    <!-- Emit the list of students from the <app-user> child component -->
-    @for (std of students; track std.name) {
-        <div class="student-card">
-        <p><strong>Name:</strong> {{ std.name }}</p>
-        <p><strong>Age:</strong> {{ std.age }}</p>
-        <p><strong>Address:</strong> {{ std.address }}</p>
-        <hr />
-      </div>
-    }
+<div class="divContainer" style="overflow-y: scroll;height: 300px;">
+  <h1>studentdetails works!</h1>
+  <app-user (getStudents)="handleStudent($event);"></app-user>
+  <!-- Emit the list of students from the <app-user> child component -->
+  @for (std of students; track std.name) {
+  <div class="divContainer">
+    <p><strong>Name:</strong> {{ std.name }}</p>
+    <p><strong>Age:</strong> {{ std.age }}</p>
+    <p><strong>Address:</strong> {{ std.address }}</p>
+  </div>
+  }
+</div>
+<hr>
+<div class="divContainer">
+  <h2>Currenct Converter:</h2>
+  <div class="divContainer">
+    <input type="number" [(ngModel)]="ammount" placeholder="Enter the Ammount">
+    <p>Converted: {{ammount|currencyConvertor:12}}</p>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { afterRenderEffect, Component, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { User } from '../user/user';
 import { CommonModule } from '@angular/common';
@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.css'
 })
 export class Home {
+  // 🔹 Accessing the <app-user #user> element reference
+  @ViewChild('user') user!: User;
   usersName: string = 'Bruce Wayne';
   selectedFlower: string = 'Rose';
   users = [
@@ -37,6 +39,12 @@ export class Home {
 
   constructor(private router: Router) { }
 
+  // 🔸 Called only once the view is fully initialized
+  ngAfterViewInit() {
+    console.log("User component accessed via ViewChild:", this.user);
+    // You can now safely interact with child component methods/properties here
+  }
+
   goToProfilePage(): void {
     this.router.navigate(['/profile'], {
       queryParams: { name: 'Ram Mishra' }
@@ -48,7 +56,7 @@ export class Home {
     });
   }
 
-  onUserChange(name:string){
+  onUserChange(name: string) {
     this.usersName = name;
   }
 }
