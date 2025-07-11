@@ -8,6 +8,7 @@ import { Profile } from './profile/profile';
 import { Ractiveform } from './ractiveform/ractiveform';
 import { About } from './about/about';
 import { Studentdetails } from './studentdetails/studentdetails';
+import { Products } from './products/products';
 
 export const routes: Routes = [
     { path: '', component: Home, pathMatch: 'full' },
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path:'home', component: Home},
     {path:'about', component: About},
     {path:'signup', component: Signup},
+    {path:'products', component: Products},
     {path:'students', component: Studentdetails},
     {path:'login', component: Login},
     {path:'form', component: Ractiveform},

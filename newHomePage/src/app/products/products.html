@@ -1,0 +1,13 @@
+<p>products works!</p>
+@for (prod of productList; track prod.id) {
+    <div>
+        <span>id:{{prod.id}}</span>
+        <span>name:{{prod.title}}</span>
+        <span>price:{{prod.price}}</span>
+        <span>rating:{{prod.rating}}</span>
+        <span>brand:{{prod.brand}}</span>
+        <span>Description: {{prod.description}}</span>
+        <span>IMG: <img src="{{prod.images}}"></span>
+        <span>ThumbNail: <img src="{{prod.thumbnail}}"></span>
+    </div>
+}
